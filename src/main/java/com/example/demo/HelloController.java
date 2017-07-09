@@ -13,7 +13,7 @@ public class HelloController {
 
     @GetMapping("/")
     public String helloworld(){
-        return "Hello World!" ;
+        return "cracked eggs!" ;
 
     }
 
