@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  */
 @RunWith(SpringRunner.class)
 @WebMvcTest(EndpointsController.class)
-public class HelloControllerTest {
+public class EndpointsControllerTest {
 
     @Autowired
     public MockMvc mvc;
@@ -25,9 +25,11 @@ public class HelloControllerTest {
 @Test
     public void test() throws Exception{
         //RequestBuilder request= MockMvcRequestBuilders.get("/hello");
-        this.mvc.perform(get("/math/pi"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("3.141592653589793"));
+        this.mvc.perform(get("/query/test?type=car&id=noid"))
+                .andExpect(status().isOk());
+/*
+                .andExpect(content().string(querystring.toString()));
+*/
 
 
     }
