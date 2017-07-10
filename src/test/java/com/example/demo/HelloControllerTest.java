@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  * Created by saseri on 7/9/2017.
  */
 @RunWith(SpringRunner.class)
-@WebMvcTest(HelloController.class)
+@WebMvcTest(EndpointsController.class)
 public class HelloControllerTest {
 
     @Autowired
@@ -24,8 +24,8 @@ public class HelloControllerTest {
 
 @Test
     public void test() throws Exception{
-        RequestBuilder request= MockMvcRequestBuilders.get("/hello");
-        this.mvc.perform(request)
+        //RequestBuilder request= MockMvcRequestBuilders.get("/hello");
+        this.mvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("cracked eggs!"));
 
