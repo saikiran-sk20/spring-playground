@@ -25,9 +25,9 @@ public class HelloControllerTest {
 @Test
     public void test() throws Exception{
         //RequestBuilder request= MockMvcRequestBuilders.get("/hello");
-        this.mvc.perform(get("/"))
+        this.mvc.perform(get("/math/pi"))
                 .andExpect(status().isOk())
-                .andExpect(content().string("cracked eggs!"));
+                .andExpect(content().string("3.141592653589793"));
 
 
     }

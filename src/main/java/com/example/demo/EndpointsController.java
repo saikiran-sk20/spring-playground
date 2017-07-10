@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/app")
+/*@RequestMapping("/app")*/
 public class EndpointsController {
 
-    @GetMapping(value={"","/geteggs"})
-    public String getEggs(){
-        return "cracked eggs!" ;
+    @GetMapping("/math/pi")
+    public String piValue(){
+        return "3.141592653589793" ;
 
     }
  @PostMapping("/")
