@@ -4,25 +4,36 @@ package com.example.demo;
  * Created by saseri on 7/6/2017.
  */
 import java.lang.String;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.*;
 
 @RestController
-/*@RequestMapping("/app")*/
+@RequestMapping("/math")
 public class EndpointsController {
 
-    @GetMapping("/query/test")
-    public String queryValue(@RequestParam Map querystring){
-        return querystring.toString();
-   /* public String piValue(@RequestParam String type,@RequestParam String id){
-        return String.format("type is: %s and id is: %s",type,id) ;*/
+@Autowired
+private MathService mathService;
 
+    @GetMapping("/")
+    public String HelloSpring(){
+        return "Hello Spring!";
     }
- @PostMapping("/")
-    public String postEggs(){
-        return "New eggs!";
 
- }
+    @GetMapping("/calculate")
+    public String arithemeticController(@RequestParam String operation, @RequestParam String x, @RequestParam String y) {
+
+        String answer = mathService.arithimetic(operation, x, y);
+        return answer;
+    }
+
+    @PostMapping("/sum")
+    public String sum(@RequestParam MultiValueMap<String, String> map){
+        String ans = mathService.postSum(map);
+        return ans;
+    }
 
 }

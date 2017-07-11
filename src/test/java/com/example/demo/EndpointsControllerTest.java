@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,18 +22,29 @@ public class EndpointsControllerTest {
 
     @Autowired
     public MockMvc mvc;
+/*
 
 @Test
     public void test() throws Exception{
         //RequestBuilder request= MockMvcRequestBuilders.get("/hello");
         this.mvc.perform(get("/query/test?type=car&id=noid"))
-                .andExpect(status().isOk());
-/*
-                .andExpect(content().string(querystring.toString()));
+                .andExpect(status().isOk())
+                .andExpect(content().string("type=car,id=noid");
+    }
 */
 
 
+
+@Test
+    public void testMathServiceGet() throws Exception{
+    this .mvc.perform(get("/math/calculate?operation=sum&x=2&y=3"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("2 + 3 = 5"));
     }
-
-
+@Test
+    public void testMathServicePost() throws Exception{
+    this .mvc.perform(post("/math/sum?n=2&n=3&n=4"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("9"));
+    }
 }
