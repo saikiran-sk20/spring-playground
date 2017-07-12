@@ -46,5 +46,9 @@ public class MathService {
 
         return String.valueOf(ans);
     }
+    public String volume (String length,String breath,String height){
+        int ans = Integer.parseInt(length)*Integer.parseInt(breath)*Integer.parseInt(height);
 
+        return String.format("The volume of a %sx%sx%s rectangle is %s", length, breath, height, ans);
+    }
 }
