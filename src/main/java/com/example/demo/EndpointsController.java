@@ -3,12 +3,9 @@ package com.example.demo;
 /**
  * Created by saseri on 7/6/2017.
  */
-import java.lang.String;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import sun.security.util.Length;
 
 import java.util.Map;
 
@@ -26,6 +23,14 @@ private MathService mathService;
      return calculateVol;
     }
 
+    @PostMapping("/area")
+    public String areaEp(@RequestParam Map<String, String> form)throws Exception{
+/*
+        System.out.print(form);
+*/
+    String areaEp = mathService.area(form);
+        return areaEp;
+    }
     @GetMapping("/")
     public String HelloSpring(){
         return "Hello Spring!";
